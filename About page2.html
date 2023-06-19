@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect page2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+	<style>
+	h1{color: antiquewhite;font-size: 1rem;}</style>
+  <body>
+<a href="../newindex.html"><p><h1>Home</h1></p></a>
+	  
+	 
+	  
+	  
+	  
+    <div class="slider">
+      <div class="slide active">
+       <a href="../page3/하울1/Details3.html"> <img src="하울/howl033.jpg" alt="하울의 움직이는 성"></a>
+        <div class="info">
+          <h2>하울의 움직이는 성</h2>
+          <p>마법과 현대세계의 교차에서 연결까지 <br>
+			  아름다운 그림체 안에 숨겨진 다양한 이야기들을 즐겨보세요.<br>
+			  
+        </div>
+      </div>
+      <div class="slide">
+        <a href="../page3/마루밑2/Details3-2.html"><img src="마루밑/karigurashi050.jpg" alt="마루밑 아리에티"></a>
+        <div class="info">
+          <h2>마루밑 아리에티</h2>
+          <p>누구보다 강한 마음의 소인 아리에티,<br>
+		소인과 인간의 긴밀한 관계를 통해 전달하는 이야기를 경험해보세요. 
+			</p>
+        </div>
+      </div>
+      <div class="slide">
+       <a href="../page3/포뇨3/Details3-3.html"> <img src="포뇨/ponyo033.jpg" alt=""></a>
+        <div class="info">
+          <h2>벼랑 위의 포뇨</h2>
+          <p>그래픽에서 벗어나 손으로 그려진 그림들로,<Br>
+			  크레파스로 그린 역동적이며 환상적인 동화적 움직임을 즐겨보세요.</p>
+        </div>
+      </div>
+      <div class="slide">
+       <a href="../page3/센과 치히로4/Details3-4.html"> <img src="센과치히로의 행방불명/chihiro021.jpg" alt=""></a>
+        <div class="info">
+          <h2>센과 치히로의 행방불명</h2>
+          <p>해석의 여지를 많이 남기며,<br>
+			잊혀지지 않을 여운을 제공할 영화 경험해보세요.</p>
+        </div>
+      </div>
+      <div class="slide">
+       <a href="../page3/고양이보은5/Details3-5.html"> <img src="고양이/baron022.jpg" alt=""></a>
+        <div class="info">
+          <h2>고양이의 보은</h2>
+          <p>현대배경에 동화적 전개 속,<br>
+			다양한 매력을 가진 고양이들을 즐겨보세요.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+      <div class="navigation-visibility">
+        <div class="slide-icon active"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+      </div>
+    </div>
+	  
+	      <script type="text/javascript">
+    const slider = document.querySelector(".slider");
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+    const slides = document.querySelectorAll(".slide");
+    const slideIcons = document.querySelectorAll(".slide-icon");
+    const numberOfSlides = slides.length;
+    var slideNumber = 0;
+
+    //image slider next button
+    nextBtn.addEventListener("click", () => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber++;
+
+      if(slideNumber > (numberOfSlides - 1)){
+        slideNumber = 0;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    });
+
+    //image slider previous button
+    prevBtn.addEventListener("click", () => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber--;
+
+      if(slideNumber < 0){
+        slideNumber = numberOfSlides - 1;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    });
+
+   
+    var playSlider;
+
+    var repeater = () => {
+      playSlider = setInterval(function(){
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        slideIcons.forEach((slideIcon) => {
+          slideIcon.classList.remove("active");
+        });
+
+        slideNumber++;
+
+        if(slideNumber > (numberOfSlides - 1)){
+          slideNumber = 0;
+        }
+
+        slides[slideNumber].classList.add("active");
+        slideIcons[slideNumber].classList.add("active");
+      }, 4000);
+    }
+    repeater();
+
+    
+    slider.addEventListener("mouseover", () => {
+      clearInterval(playSlider);
+    });
+
+   
+    slider.addEventListener("mouseout", () => {
+      repeater();
+    });
+    </script>
+      
+	  
+	  
+  </body>
+</html>
+      
